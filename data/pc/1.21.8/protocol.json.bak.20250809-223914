@@ -4112,25 +4112,23 @@
                 {
                   "type": "varint",
                   "mappings": {
-                    "0x0": "cookie_request",
-                    "0x1": "custom_payload",
-                    "0x2": "disconnect",
-                    "0x3": "finish_configuration",
-                    "0x4": "keep_alive",
-                    "0x5": "ping",
-                    "0x6": "reset_chat",
-                    "0x7": "registry_data",
-                    "0x8": "resource_pack_pop",
-                    "0x9": "resource_pack_push",
-                    "0xa": "store_cookie",
-                    "0xb": "transfer",
-                    "0xc": "update_enabled_features",
-                    "0xd": "update_tags",
-                    "0xe": "select_known_packs",
-                    "0xf": "custom_report_details",
-                    "0x10": "server_links",
-                    "0x11": "clear_dialog",
-                    "0x12": "show_dialog"
+                    "0x00": "cookie_request",
+                    "0x01": "custom_payload",
+                    "0x02": "disconnect",
+                    "0x03": "finish_configuration",
+                    "0x04": "keep_alive",
+                    "0x05": "ping",
+                    "0x06": "reset_chat",
+                    "0x07": "registry_data",
+                    "0x08": "remove_resource_pack",
+                    "0x09": "add_resource_pack",
+                    "0x0a": "store_cookie",
+                    "0x0b": "transfer",
+                    "0x0c": "feature_flags",
+                    "0x0d": "tags",
+                    "0x0e": "select_known_packs",
+                    "0x0f": "custom_report_details",
+                    "0x10": "server_links"
                   }
                 }
               ]
@@ -4158,70 +4156,10 @@
                     "tags": "packet_tags",
                     "select_known_packs": "packet_common_select_known_packs",
                     "custom_report_details": "packet_common_custom_report_details",
-                    "server_links": "packet_common_server_links",
-                    "clear_dialog": "packet_clear_dialog",
-                    "resource_pack_pop": "packet_resource_pack_pop",
-                    "resource_pack_push": "packet_resource_pack_push",
-                    "show_dialog": "packet_show_dialog",
-                    "update_enabled_features": "packet_update_enabled_features",
-                    "update_tags": "packet_update_tags"
+                    "server_links": "packet_common_server_links"
                   }
                 }
               ]
-            }
-          ]
-        ],
-        "packet_clear_dialog": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack_pop": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack_push": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_show_dialog": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_enabled_features": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_tags": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
             }
           ]
         ]
@@ -4287,15 +4225,16 @@
                 {
                   "type": "varint",
                   "mappings": {
-                    "0x0": "client_information",
-                    "0x1": "cookie_response",
-                    "0x2": "custom_payload",
-                    "0x3": "finish_configuration",
-                    "0x4": "keep_alive",
-                    "0x5": "pong",
-                    "0x6": "resource_pack",
-                    "0x7": "select_known_packs",
-                    "0x8": "custom_click_action"
+                    "0x00": "settings",
+                    "0x01": "cookie_response",
+                    "0x02": "custom_payload",
+                    "0x03": "finish_configuration",
+                    "0x04": "keep_alive",
+                    "0x05": "pong",
+                    "0x06": "resource_pack_receive",
+                    "0x07": "select_known_packs",
+                    "0x08": "custom_report_details",
+                    "0x09": "server_links"
                   }
                 }
               ]
@@ -4316,40 +4255,10 @@
                     "resource_pack_receive": "packet_resource_pack_receive",
                     "select_known_packs": "packet_common_select_known_packs",
                     "custom_report_details": "packet_common_custom_report_details",
-                    "server_links": "packet_common_server_links",
-                    "client_information": "packet_client_information",
-                    "custom_click_action": "packet_custom_click_action",
-                    "resource_pack": "packet_resource_pack"
+                    "server_links": "packet_common_server_links"
                   }
                 }
               ]
-            }
-          ]
-        ],
-        "packet_client_information": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_custom_click_action": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
             }
           ]
         ]
@@ -8296,140 +8205,137 @@
                 {
                   "type": "varint",
                   "mappings": {
-                    "0x0": "bundle_delimiter",
-                    "0x1": "add_entity",
-                    "0x2": "animate",
-                    "0x3": "award_stats",
-                    "0x4": "block_changed_ack",
-                    "0x5": "block_destruction",
-                    "0x6": "block_entity_data",
-                    "0x7": "block_event",
-                    "0x8": "block_update",
-                    "0x9": "boss_event",
-                    "0xa": "change_difficulty",
-                    "0xb": "chunk_batch_finished",
-                    "0xc": "chunk_batch_start",
-                    "0xd": "chunks_biomes",
-                    "0xe": "clear_titles",
-                    "0xf": "command_suggestions",
-                    "0x10": "commands",
-                    "0x11": "container_close",
-                    "0x12": "container_set_content",
-                    "0x13": "container_set_data",
-                    "0x14": "container_set_slot",
+                    "0x00": "bundle_delimiter",
+                    "0x01": "spawn_entity",
+                    "0x02": "animation",
+                    "0x03": "statistics",
+                    "0x04": "acknowledge_player_digging",
+                    "0x05": "block_break_animation",
+                    "0x06": "tile_entity_data",
+                    "0x07": "block_action",
+                    "0x08": "block_change",
+                    "0x09": "boss_bar",
+                    "0x0a": "difficulty",
+                    "0x0b": "chunk_batch_finished",
+                    "0x0c": "chunk_batch_start",
+                    "0x0d": "chunk_biomes",
+                    "0x0e": "clear_titles",
+                    "0x0f": "tab_complete",
+                    "0x10": "declare_commands",
+                    "0x11": "close_window",
+                    "0x12": "window_items",
+                    "0x13": "craft_progress_bar",
+                    "0x14": "set_slot",
                     "0x15": "cookie_request",
-                    "0x16": "cooldown",
-                    "0x17": "custom_chat_completions",
+                    "0x16": "set_cooldown",
+                    "0x17": "chat_suggestions",
                     "0x18": "custom_payload",
                     "0x19": "damage_event",
                     "0x1a": "debug_sample",
-                    "0x1b": "delete_chat",
-                    "0x1c": "disconnect",
-                    "0x1d": "disguised_chat",
-                    "0x1e": "entity_event",
-                    "0x1f": "entity_position_sync",
-                    "0x20": "explode",
-                    "0x21": "forget_level_chunk",
-                    "0x22": "game_event",
-                    "0x23": "horse_screen_open",
+                    "0x1b": "hide_message",
+                    "0x1c": "kick_disconnect",
+                    "0x1d": "profileless_chat",
+                    "0x1e": "entity_status",
+                    "0x1f": "sync_entity_position",
+                    "0x20": "explosion",
+                    "0x21": "unload_chunk",
+                    "0x22": "game_state_change",
+                    "0x23": "open_horse_window",
                     "0x24": "hurt_animation",
-                    "0x25": "initialize_border",
+                    "0x25": "initialize_world_border",
                     "0x26": "keep_alive",
-                    "0x27": "level_chunk_with_light",
-                    "0x28": "level_event",
-                    "0x29": "level_particles",
-                    "0x2a": "light_update",
+                    "0x27": "map_chunk",
+                    "0x28": "world_event",
+                    "0x29": "world_particles",
+                    "0x2a": "update_light",
                     "0x2b": "login",
-                    "0x2c": "map_item_data",
-                    "0x2d": "merchant_offers",
-                    "0x2e": "move_entity_pos",
-                    "0x2f": "move_entity_pos_rot",
-                    "0x30": "move_minecart_along_track",
-                    "0x31": "move_entity_rot",
-                    "0x32": "move_vehicle",
+                    "0x2c": "map",
+                    "0x2d": "trade_list",
+                    "0x2e": "rel_entity_move",
+                    "0x2f": "entity_move_look",
+                    "0x30": "move_minecart",
+                    "0x31": "entity_look",
+                    "0x32": "vehicle_move",
                     "0x33": "open_book",
-                    "0x34": "open_screen",
-                    "0x35": "open_sign_editor",
+                    "0x34": "open_window",
+                    "0x35": "open_sign_entity",
                     "0x36": "ping",
-                    "0x37": "pong_response",
-                    "0x38": "place_ghost_recipe",
-                    "0x39": "player_abilities",
+                    "0x37": "ping_response",
+                    "0x38": "craft_recipe_response",
+                    "0x39": "abilities",
                     "0x3a": "player_chat",
-                    "0x3b": "player_combat_end",
-                    "0x3c": "player_combat_enter",
-                    "0x3d": "player_combat_kill",
-                    "0x3e": "player_info_remove",
-                    "0x3f": "player_info_update",
-                    "0x40": "player_look_at",
-                    "0x41": "player_position",
+                    "0x3b": "end_combat_event",
+                    "0x3c": "enter_combat_event",
+                    "0x3d": "death_combat_event",
+                    "0x3e": "player_remove",
+                    "0x3f": "player_info",
+                    "0x40": "face_player",
+                    "0x41": "position",
                     "0x42": "player_rotation",
                     "0x43": "recipe_book_add",
                     "0x44": "recipe_book_remove",
                     "0x45": "recipe_book_settings",
-                    "0x46": "remove_entities",
-                    "0x47": "remove_mob_effect",
+                    "0x46": "entity_destroy",
+                    "0x47": "remove_entity_effect",
                     "0x48": "reset_score",
-                    "0x49": "resource_pack_pop",
-                    "0x4a": "resource_pack_push",
+                    "0x49": "remove_resource_pack",
+                    "0x4a": "add_resource_pack",
                     "0x4b": "respawn",
-                    "0x4c": "rotate_head",
-                    "0x4d": "section_blocks_update",
-                    "0x4e": "select_advancements_tab",
+                    "0x4c": "entity_head_rotation",
+                    "0x4d": "multi_block_change",
+                    "0x4e": "select_advancement_tab",
                     "0x4f": "server_data",
-                    "0x50": "set_action_bar_text",
-                    "0x51": "set_border_center",
-                    "0x52": "set_border_lerp_size",
-                    "0x53": "set_border_size",
-                    "0x54": "set_border_warning_delay",
-                    "0x55": "set_border_warning_distance",
-                    "0x56": "set_camera",
-                    "0x57": "set_chunk_cache_center",
-                    "0x58": "set_chunk_cache_radius",
+                    "0x50": "action_bar",
+                    "0x51": "world_border_center",
+                    "0x52": "world_border_lerp_size",
+                    "0x53": "world_border_size",
+                    "0x54": "world_border_warning_delay",
+                    "0x55": "world_border_warning_reach",
+                    "0x56": "camera",
+                    "0x57": "update_view_position",
+                    "0x58": "update_view_distance",
                     "0x59": "set_cursor_item",
-                    "0x5a": "set_default_spawn_position",
-                    "0x5b": "set_display_objective",
-                    "0x5c": "set_entity_data",
-                    "0x5d": "set_entity_link",
-                    "0x5e": "set_entity_motion",
-                    "0x5f": "set_equipment",
-                    "0x60": "set_experience",
-                    "0x61": "set_health",
-                    "0x62": "set_held_slot",
-                    "0x63": "set_objective",
+                    "0x5a": "spawn_position",
+                    "0x5b": "scoreboard_display_objective",
+                    "0x5c": "entity_metadata",
+                    "0x5d": "attach_entity",
+                    "0x5e": "entity_velocity",
+                    "0x5f": "entity_equipment",
+                    "0x60": "experience",
+                    "0x61": "update_health",
+                    "0x62": "held_item_slot",
+                    "0x63": "scoreboard_objective",
                     "0x64": "set_passengers",
                     "0x65": "set_player_inventory",
-                    "0x66": "set_player_team",
-                    "0x67": "set_score",
-                    "0x68": "set_simulation_distance",
-                    "0x69": "set_subtitle_text",
-                    "0x6a": "set_time",
+                    "0x66": "teams",
+                    "0x67": "scoreboard_score",
+                    "0x68": "simulation_distance",
+                    "0x69": "set_title_subtitle",
+                    "0x6a": "update_time",
                     "0x6b": "set_title_text",
-                    "0x6c": "set_titles_animation",
-                    "0x6d": "sound_entity",
-                    "0x6e": "sound",
+                    "0x6c": "set_title_time",
+                    "0x6d": "entity_sound_effect",
+                    "0x6e": "sound_effect",
                     "0x6f": "start_configuration",
                     "0x70": "stop_sound",
                     "0x71": "store_cookie",
                     "0x72": "system_chat",
-                    "0x73": "tab_list",
-                    "0x74": "tag_query",
-                    "0x75": "take_item_entity",
-                    "0x76": "teleport_entity",
+                    "0x73": "playerlist_header",
+                    "0x74": "nbt_query_response",
+                    "0x75": "collect",
+                    "0x76": "entity_teleport",
                     "0x77": "test_instance_block_status",
-                    "0x78": "ticking_state",
-                    "0x79": "ticking_step",
+                    "0x78": "set_ticking_state",
+                    "0x79": "step_tick",
                     "0x7a": "transfer",
-                    "0x7b": "update_advancements",
-                    "0x7c": "update_attributes",
-                    "0x7d": "update_mob_effect",
-                    "0x7e": "update_recipes",
-                    "0x7f": "update_tags",
-                    "0x80": "projectile_power",
+                    "0x7b": "advancements",
+                    "0x7c": "entity_update_attributes",
+                    "0x7d": "entity_effect",
+                    "0x7e": "declare_recipes",
+                    "0x7f": "tags",
+                    "0x80": "set_projectile_power",
                     "0x81": "custom_report_details",
-                    "0x82": "server_links",
-                    "0x83": "waypoint",
-                    "0x84": "clear_dialog",
-                    "0x85": "show_dialog"
+                    "0x82": "server_links"
                   }
                 }
               ]
@@ -8571,1020 +8477,10 @@
                     "tags": "packet_tags",
                     "set_projectile_power": "packet_set_projectile_power",
                     "custom_report_details": "packet_common_custom_report_details",
-                    "server_links": "packet_common_server_links",
-                    "add_entity": "packet_add_entity",
-                    "animate": "packet_animate",
-                    "award_stats": "packet_award_stats",
-                    "block_changed_ack": "packet_block_changed_ack",
-                    "block_destruction": "packet_block_destruction",
-                    "block_entity_data": "packet_block_entity_data",
-                    "block_event": "packet_block_event",
-                    "block_update": "packet_block_update",
-                    "boss_event": "packet_boss_event",
-                    "change_difficulty": "packet_change_difficulty",
-                    "chunks_biomes": "packet_chunks_biomes",
-                    "clear_dialog": "packet_clear_dialog",
-                    "command_suggestions": "packet_command_suggestions",
-                    "commands": "packet_commands",
-                    "container_close": "packet_container_close",
-                    "container_set_content": "packet_container_set_content",
-                    "container_set_data": "packet_container_set_data",
-                    "container_set_slot": "packet_container_set_slot",
-                    "cooldown": "packet_cooldown",
-                    "custom_chat_completions": "packet_custom_chat_completions",
-                    "delete_chat": "packet_delete_chat",
-                    "disconnect": "packet_disconnect",
-                    "disguised_chat": "packet_disguised_chat",
-                    "entity_event": "packet_entity_event",
-                    "entity_position_sync": "packet_entity_position_sync",
-                    "explode": "packet_explode",
-                    "forget_level_chunk": "packet_forget_level_chunk",
-                    "game_event": "packet_game_event",
-                    "horse_screen_open": "packet_horse_screen_open",
-                    "initialize_border": "packet_initialize_border",
-                    "level_chunk_with_light": "packet_level_chunk_with_light",
-                    "level_event": "packet_level_event",
-                    "level_particles": "packet_level_particles",
-                    "light_update": "packet_light_update",
-                    "map_item_data": "packet_map_item_data",
-                    "merchant_offers": "packet_merchant_offers",
-                    "move_entity_pos": "packet_move_entity_pos",
-                    "move_entity_pos_rot": "packet_move_entity_pos_rot",
-                    "move_entity_rot": "packet_move_entity_rot",
-                    "move_minecart_along_track": "packet_move_minecart_along_track",
-                    "move_vehicle": "packet_move_vehicle",
-                    "open_screen": "packet_open_screen",
-                    "open_sign_editor": "packet_open_sign_editor",
-                    "place_ghost_recipe": "packet_place_ghost_recipe",
-                    "player_abilities": "packet_player_abilities",
-                    "player_combat_end": "packet_player_combat_end",
-                    "player_combat_enter": "packet_player_combat_enter",
-                    "player_combat_kill": "packet_player_combat_kill",
-                    "player_info_remove": "packet_player_info_remove",
-                    "player_info_update": "packet_player_info_update",
-                    "player_look_at": "packet_player_look_at",
-                    "player_position": "packet_player_position",
-                    "pong_response": "packet_pong_response",
-                    "projectile_power": "packet_projectile_power",
-                    "remove_entities": "packet_remove_entities",
-                    "remove_mob_effect": "packet_remove_mob_effect",
-                    "resource_pack_pop": "packet_resource_pack_pop",
-                    "resource_pack_push": "packet_resource_pack_push",
-                    "rotate_head": "packet_rotate_head",
-                    "section_blocks_update": "packet_section_blocks_update",
-                    "select_advancements_tab": "packet_select_advancements_tab",
-                    "set_action_bar_text": "packet_set_action_bar_text",
-                    "set_border_center": "packet_set_border_center",
-                    "set_border_lerp_size": "packet_set_border_lerp_size",
-                    "set_border_size": "packet_set_border_size",
-                    "set_border_warning_delay": "packet_set_border_warning_delay",
-                    "set_border_warning_distance": "packet_set_border_warning_distance",
-                    "set_camera": "packet_set_camera",
-                    "set_chunk_cache_center": "packet_set_chunk_cache_center",
-                    "set_chunk_cache_radius": "packet_set_chunk_cache_radius",
-                    "set_default_spawn_position": "packet_set_default_spawn_position",
-                    "set_display_objective": "packet_set_display_objective",
-                    "set_entity_data": "packet_set_entity_data",
-                    "set_entity_link": "packet_set_entity_link",
-                    "set_entity_motion": "packet_set_entity_motion",
-                    "set_equipment": "packet_set_equipment",
-                    "set_experience": "packet_set_experience",
-                    "set_health": "packet_set_health",
-                    "set_held_slot": "packet_set_held_slot",
-                    "set_objective": "packet_set_objective",
-                    "set_player_team": "packet_set_player_team",
-                    "set_score": "packet_set_score",
-                    "set_simulation_distance": "packet_set_simulation_distance",
-                    "set_subtitle_text": "packet_set_subtitle_text",
-                    "set_time": "packet_set_time",
-                    "set_titles_animation": "packet_set_titles_animation",
-                    "show_dialog": "packet_show_dialog",
-                    "sound": "packet_sound",
-                    "sound_entity": "packet_sound_entity",
-                    "tab_list": "packet_tab_list",
-                    "tag_query": "packet_tag_query",
-                    "take_item_entity": "packet_take_item_entity",
-                    "teleport_entity": "packet_teleport_entity",
-                    "ticking_state": "packet_ticking_state",
-                    "ticking_step": "packet_ticking_step",
-                    "update_advancements": "packet_update_advancements",
-                    "update_attributes": "packet_update_attributes",
-                    "update_mob_effect": "packet_update_mob_effect",
-                    "update_recipes": "packet_update_recipes",
-                    "update_tags": "packet_update_tags",
-                    "waypoint": "packet_waypoint"
+                    "server_links": "packet_common_server_links"
                   }
                 }
               ]
-            }
-          ]
-        ],
-        "packet_add_entity": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_animate": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_award_stats": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_changed_ack": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_destruction": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_entity_data": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_event": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_update": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_boss_event": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_change_difficulty": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_chunks_biomes": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_clear_dialog": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_command_suggestions": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_commands": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_close": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_set_content": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_set_data": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_set_slot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_cooldown": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_custom_chat_completions": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_delete_chat": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_disconnect": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_disguised_chat": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_entity_event": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_entity_position_sync": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_explode": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_forget_level_chunk": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_game_event": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_horse_screen_open": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_initialize_border": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_level_chunk_with_light": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_level_event": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_level_particles": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_light_update": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_map_item_data": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_merchant_offers": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_entity_pos": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_entity_pos_rot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_entity_rot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_minecart_along_track": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_vehicle": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_open_screen": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_open_sign_editor": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_place_ghost_recipe": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_abilities": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_combat_end": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_combat_enter": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_combat_kill": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_info_remove": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_info_update": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_look_at": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_position": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_pong_response": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_projectile_power": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_remove_entities": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_remove_mob_effect": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack_pop": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack_push": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_rotate_head": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_section_blocks_update": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_select_advancements_tab": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_action_bar_text": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_border_center": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_border_lerp_size": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_border_size": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_border_warning_delay": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_border_warning_distance": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_camera": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_chunk_cache_center": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_chunk_cache_radius": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_default_spawn_position": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_display_objective": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_entity_data": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_entity_link": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_entity_motion": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_equipment": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_experience": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_health": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_held_slot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_objective": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_player_team": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_score": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_simulation_distance": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_subtitle_text": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_time": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_titles_animation": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_show_dialog": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_sound": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_sound_entity": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_tab_list": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_tag_query": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_take_item_entity": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_teleport_entity": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_ticking_state": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_ticking_step": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_advancements": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_attributes": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_mob_effect": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_recipes": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_update_tags": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_waypoint": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
             }
           ]
         ]
@@ -10804,72 +9700,70 @@
                 {
                   "type": "varint",
                   "mappings": {
-                    "0x0": "accept_teleportation",
-                    "0x1": "block_entity_tag_query",
-                    "0x2": "bundle_item_selected",
-                    "0x3": "change_difficulty",
-                    "0x4": "change_game_mode",
-                    "0x5": "chat_ack",
-                    "0x6": "chat_command",
-                    "0x7": "chat_command_signed",
-                    "0x8": "chat",
-                    "0x9": "chat_session_update",
-                    "0xa": "chunk_batch_received",
-                    "0xb": "client_command",
-                    "0xc": "client_tick_end",
-                    "0xd": "client_information",
-                    "0xe": "command_suggestion",
-                    "0xf": "configuration_acknowledged",
-                    "0x10": "container_button_click",
-                    "0x11": "container_click",
-                    "0x12": "container_close",
-                    "0x13": "container_slot_state_changed",
-                    "0x14": "cookie_response",
-                    "0x15": "custom_payload",
-                    "0x16": "debug_sample_subscription",
-                    "0x17": "edit_book",
-                    "0x18": "entity_tag_query",
-                    "0x19": "interact",
-                    "0x1a": "jigsaw_generate",
-                    "0x1b": "keep_alive",
-                    "0x1c": "lock_difficulty",
-                    "0x1d": "move_player_pos",
-                    "0x1e": "move_player_pos_rot",
-                    "0x1f": "move_player_rot",
-                    "0x20": "move_player_status_only",
-                    "0x21": "move_vehicle",
-                    "0x22": "paddle_boat",
-                    "0x23": "pick_item_from_block",
-                    "0x24": "pick_item_from_entity",
-                    "0x25": "ping_request",
-                    "0x26": "place_recipe",
-                    "0x27": "player_abilities",
-                    "0x28": "player_action",
-                    "0x29": "player_command",
-                    "0x2a": "player_input",
-                    "0x2b": "player_loaded",
-                    "0x2c": "pong",
-                    "0x2d": "recipe_book_change_settings",
-                    "0x2e": "recipe_book_seen_recipe",
-                    "0x2f": "rename_item",
-                    "0x30": "resource_pack",
-                    "0x31": "seen_advancements",
-                    "0x32": "select_trade",
-                    "0x33": "set_beacon",
-                    "0x34": "set_carried_item",
-                    "0x35": "set_command_block",
-                    "0x36": "set_command_minecart",
-                    "0x37": "set_creative_mode_slot",
-                    "0x38": "set_jigsaw_block",
-                    "0x39": "set_structure_block",
-                    "0x3a": "set_test_block",
-                    "0x3b": "sign_update",
-                    "0x3c": "swing",
-                    "0x3d": "teleport_to_entity",
-                    "0x3e": "test_instance_block_action",
-                    "0x3f": "use_item_on",
-                    "0x40": "use_item",
-                    "0x41": "custom_click_action"
+                    "0x00": "teleport_confirm",
+                    "0x01": "query_block_nbt",
+                    "0x02": "select_bundle_item",
+                    "0x03": "set_difficulty",
+                    "0x04": "message_acknowledgement",
+                    "0x05": "chat_command",
+                    "0x06": "chat_command_signed",
+                    "0x07": "chat_message",
+                    "0x08": "chat_session_update",
+                    "0x09": "chunk_batch_received",
+                    "0x0a": "client_command",
+                    "0x0b": "tick_end",
+                    "0x0c": "settings",
+                    "0x0d": "tab_complete",
+                    "0x0e": "configuration_acknowledged",
+                    "0x0f": "enchant_item",
+                    "0x10": "window_click",
+                    "0x11": "close_window",
+                    "0x12": "set_slot_state",
+                    "0x13": "cookie_response",
+                    "0x14": "custom_payload",
+                    "0x15": "debug_sample_subscription",
+                    "0x16": "edit_book",
+                    "0x17": "query_entity_nbt",
+                    "0x18": "use_entity",
+                    "0x19": "generate_structure",
+                    "0x1a": "keep_alive",
+                    "0x1b": "lock_difficulty",
+                    "0x1c": "position",
+                    "0x1d": "position_look",
+                    "0x1e": "look",
+                    "0x1f": "flying",
+                    "0x20": "vehicle_move",
+                    "0x21": "steer_boat",
+                    "0x22": "pick_item_from_block",
+                    "0x23": "pick_item_from_entity",
+                    "0x24": "ping_request",
+                    "0x25": "craft_recipe_request",
+                    "0x26": "abilities",
+                    "0x27": "block_dig",
+                    "0x28": "entity_action",
+                    "0x29": "player_input",
+                    "0x2a": "player_loaded",
+                    "0x2b": "pong",
+                    "0x2c": "recipe_book",
+                    "0x2d": "displayed_recipe",
+                    "0x2e": "name_item",
+                    "0x2f": "resource_pack_receive",
+                    "0x30": "advancement_tab",
+                    "0x31": "select_trade",
+                    "0x32": "set_beacon_effect",
+                    "0x33": "held_item_slot",
+                    "0x34": "update_command_block",
+                    "0x35": "update_command_block_minecart",
+                    "0x36": "set_creative_slot",
+                    "0x37": "update_jigsaw_block",
+                    "0x38": "update_structure_block",
+                    "0x39": "set_test_block",
+                    "0x3a": "update_sign",
+                    "0x3b": "arm_animation",
+                    "0x3c": "test_instance_block_action",
+                    "0x3d": "spectate",
+                    "0x3e": "block_place",
+                    "0x3f": "use_item"
                   }
                 }
               ]
@@ -10943,451 +9837,10 @@
                     "test_instance_block_action": "packet_test_instance_block_action",
                     "spectate": "packet_spectate",
                     "block_place": "packet_block_place",
-                    "use_item": "packet_use_item",
-                    "accept_teleportation": "packet_accept_teleportation",
-                    "block_entity_tag_query": "packet_block_entity_tag_query",
-                    "bundle_item_selected": "packet_bundle_item_selected",
-                    "change_difficulty": "packet_change_difficulty",
-                    "change_game_mode": "packet_change_game_mode",
-                    "chat": "packet_chat",
-                    "chat_ack": "packet_chat_ack",
-                    "client_information": "packet_client_information",
-                    "client_tick_end": "packet_client_tick_end",
-                    "command_suggestion": "packet_command_suggestion",
-                    "container_button_click": "packet_container_button_click",
-                    "container_click": "packet_container_click",
-                    "container_close": "packet_container_close",
-                    "container_slot_state_changed": "packet_container_slot_state_changed",
-                    "custom_click_action": "packet_custom_click_action",
-                    "debug_sample_subscription": "packet_debug_sample_subscription",
-                    "entity_tag_query": "packet_entity_tag_query",
-                    "interact": "packet_interact",
-                    "jigsaw_generate": "packet_jigsaw_generate",
-                    "move_player_pos": "packet_move_player_pos",
-                    "move_player_pos_rot": "packet_move_player_pos_rot",
-                    "move_player_rot": "packet_move_player_rot",
-                    "move_player_status_only": "packet_move_player_status_only",
-                    "move_vehicle": "packet_move_vehicle",
-                    "paddle_boat": "packet_paddle_boat",
-                    "place_recipe": "packet_place_recipe",
-                    "player_abilities": "packet_player_abilities",
-                    "player_action": "packet_player_action",
-                    "player_command": "packet_player_command",
-                    "recipe_book_change_settings": "packet_recipe_book_change_settings",
-                    "recipe_book_seen_recipe": "packet_recipe_book_seen_recipe",
-                    "rename_item": "packet_rename_item",
-                    "resource_pack": "packet_resource_pack",
-                    "seen_advancements": "packet_seen_advancements",
-                    "set_beacon": "packet_set_beacon",
-                    "set_carried_item": "packet_set_carried_item",
-                    "set_command_block": "packet_set_command_block",
-                    "set_command_minecart": "packet_set_command_minecart",
-                    "set_creative_mode_slot": "packet_set_creative_mode_slot",
-                    "set_jigsaw_block": "packet_set_jigsaw_block",
-                    "set_structure_block": "packet_set_structure_block",
-                    "sign_update": "packet_sign_update",
-                    "swing": "packet_swing",
-                    "teleport_to_entity": "packet_teleport_to_entity",
-                    "use_item_on": "packet_use_item_on"
+                    "use_item": "packet_use_item"
                   }
                 }
               ]
-            }
-          ]
-        ],
-        "packet_accept_teleportation": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_block_entity_tag_query": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_bundle_item_selected": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_change_difficulty": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_change_game_mode": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_chat": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_chat_ack": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_client_information": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_client_tick_end": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_command_suggestion": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_button_click": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_click": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_close": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_container_slot_state_changed": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_custom_click_action": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_entity_tag_query": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_interact": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_jigsaw_generate": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_player_pos": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_player_pos_rot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_player_rot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_player_status_only": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_move_vehicle": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_paddle_boat": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_place_recipe": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_abilities": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_action": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_player_command": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_recipe_book_change_settings": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_recipe_book_seen_recipe": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_rename_item": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_resource_pack": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_seen_advancements": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_beacon": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_carried_item": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_command_block": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_command_minecart": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_creative_mode_slot": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_jigsaw_block": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_set_structure_block": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_sign_update": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_swing": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_teleport_to_entity": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
-            }
-          ]
-        ],
-        "packet_use_item_on": [
-          "container",
-          [
-            {
-              "anon": true,
-              "type": "restBuffer"
             }
           ]
         ]
